@@ -1,0 +1,24 @@
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "alifah",
+    "password": "123"
+
+}
+
+###
+
+GET http://localhost:3000/bye
+
+###
+
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username": "alifah",
+    "pasword": "123",
+    "name":"alifah",
+    "email":"alfhanuar@gmail.com"
+}
