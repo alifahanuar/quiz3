@@ -22,6 +22,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+
 app.use(express.json())
 
 app.post('/login', (req, res) => {
@@ -30,14 +31,15 @@ app.post('/login', (req, res) => {
       req.body.username,
       req.body.password
       )
-    res.send('Login')
+    let token = generateToken(result)
+    res.send(token)
 })
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
   })
 
-app.get('/bye', (req, res) => {
+app.get('/bye',verifyToken, (req, res) => {
     res.send('Bye World!')
   })
 
@@ -75,3 +77,32 @@ function login (reqUsername,reqPassword){
     email: reqEmail 
     }) 
 } 
+
+const  jwt = require('jsonwebtoken');
+  function generateToken(userData){
+    const token = jwt.sign(
+       userData,
+    'inipassword'
+    );
+   return token
+
+  }
+
+  function verifyToken(req,res,next){
+    let header = req.headers.authorization
+    console.log(header)
+
+    let token = header.split('')[1]
+
+    jwt.verify(token,'inipassword', function(err,decoded) {
+      if (err){
+        res.send("Invalid Token")
+      }
+
+      req.user = decoded
+      next()
+    });
+    
+  }
+    
+  

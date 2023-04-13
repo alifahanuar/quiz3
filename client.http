@@ -10,6 +10,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/bye
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsaWZhaCIsInBhc3N3b3JkIjoiMTIzIiwibmFtZSI6ImFsaWZhaCIsImVtYWlsIjoiYWxmaGFuckBnbWFpbC5jb20iLCJpYXQiOjE2ODEzNzA1MzJ9.bmMekeZ8l4oe6xUutnyYgkcSCmJmzISdb9YwlrSeD48
 
 ###
 
